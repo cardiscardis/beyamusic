@@ -6,7 +6,7 @@ const Navbar = () => {
         <aside id="sidebar">
             <div class="sidebar-head d-flex align-items-center justify-content-between">
                 <a href="index.html" class="brand external">
-                    {/* <img src="images/logos/logo.svg" alt="Listen app"> */}
+                    <img src="images/logos/beyamusic.svg" alt="Beyamusic" style={{width: "150%"}}/>
                 </a>
                 
                 <a href="javascript:void(0);" role="button" class="sidebar-toggler" aria-label="Sidebar toggler">
@@ -51,12 +51,6 @@ const Navbar = () => {
                                 <span class="ps-3">Artists</span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="stations.html" class="nav-link d-flex align-items-center">
-                                <i class="ri-radio-2-line fs-5"></i>
-                                <span class="ps-3">Stations</span>
-                            </a>
-                        </li>
                         <li class="nav-item nav-item--head">
                             <span class="nav-item--head__text">Music</span>
                             <span class="nav-item--head__dots">...</span>
@@ -77,44 +71,6 @@ const Navbar = () => {
                             <a href="history.html" class="nav-link d-flex align-items-center">
                                 <i class="ri-history-line fs-5"></i>
                                 <span class="ps-3">History</span>
-                            </a>
-                        </li>
-                        <li class="nav-item nav-item--head">
-                            <span class="nav-item--head__text">Events</span>
-                            <span class="nav-item--head__dots">...</span>
-                        </li>
-                        <li class="nav-item">
-                            <a href="events.html" class="nav-link d-flex align-items-center">
-                                <i class="ri-calendar-event-line fs-5"></i>
-                                <span class="ps-3">Events</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="event-details.html" class="nav-link d-flex align-items-center">
-                                <i class="ri-newspaper-line fs-5"></i>
-                                <span class="ps-3">Event Details</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="add-event.html" class="nav-link d-flex align-items-center">
-                                <i class="ri-add-circle-line fs-5"></i>
-                                <span class="ps-3">Add Event</span>
-                            </a>
-                        </li>
-                        <li class="nav-item nav-item--head">
-                            <span class="nav-item--head__text">Extra</span>
-                            <span class="nav-item--head__dots">...</span>
-                        </li>
-                        <li class="nav-item">
-                            <a href="404.html" class="nav-link d-flex align-items-center external">
-                                <i class="ri-error-warning-line fs-5"></i>
-                                <span class="ps-3">404 Page</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="blank.html" class="nav-link d-flex align-items-center">
-                                <i class="ri-file-line fs-5"></i>
-                                <span class="ps-3">Blank Template</span>
                             </a>
                         </li>
                     </ul>
