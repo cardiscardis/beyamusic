@@ -1,4 +1,5 @@
 import React from "react";
+import Link from 'next/link'
 
 const Search = () => {
     return (
@@ -319,7 +320,7 @@ const Search = () => {
                                     <div class="avatar__image">
                                         <img src="images/users/thumb.jpg" alt="user" />
                                     </div>
-                                    <span class="ps-2 d-none d-sm-block">Androws</span>
+                                    <span class="ps-2 d-none d-sm-block">Isaaac M.</span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-md dropdown-menu-end" aria-labelledby="user_menu">
                                     <li>
@@ -335,35 +336,29 @@ const Search = () => {
                                     </li>
                                     <li class="dropdown-divider"></li>
                                     <li>
-                                        <a class="dropdown-item d-flex align-items-center" href="profile.html">
+                                        <Link class="dropdown-item d-flex align-items-center" href="/dashboard">
                                             <i class="ri-user-3-line fs-5"></i>
                                             <span class="ps-2">Profile</span>
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item d-flex align-items-center" href="favorites.html">
+                                        <Link class="dropdown-item d-flex align-items-center" href="/favorites">
                                             <i class="ri-heart-line fs-5"></i>
                                             <span class="ps-2">Favorites</span>
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item d-flex align-items-center" href="settings.html">
+                                        <Link class="dropdown-item d-flex align-items-center" href="/settings">
                                             <i class="ri-settings-line fs-5"></i>
                                             <span class="ps-2">Settings</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item d-flex align-items-center" href="plan.html">
-                                            <i class="ri-money-dollar-circle-line fs-5"></i>
-                                            <span class="ps-2">Plan</span>
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li class="dropdown-divider"></li>
                                     <li>
-                                        <a class="dropdown-item d-flex align-items-center external text-danger" href="index.html">
+                                        <Link class="dropdown-item d-flex align-items-center external text-danger" href="index.html">
                                             <i class="ri-logout-circle-line fs-5"></i>
                                             <span class="ps-2">Logout</span>
-                                        </a>
+                                        </Link>
                                     </li>
                                 </ul>
                             </div>

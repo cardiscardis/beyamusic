@@ -76,15 +76,6 @@ export default function Uploadmusic() {
                                           <label class="form-check-label" for="paid">Paid</label>
                                       </div>
                                   </div>
-                                  <div class="col-12">
-                                      <div class="input-group">
-                                          <span class="input-group-text">
-                                              <i class="ri-money-dollar-circle-line"></i>
-                                          </span>
-                                          <input type="text" class="form-control" placeholder="Song price" />
-                                      </div>
-                                      <div class="form-text">Please add ticket price if Event is paid</div>
-                                  </div>
                               </form>
                           </div>
                           <div class="tab-pane fade" id="album_pane" role="tabpanel" aria-labelledby="album" tabindex="0">
@@ -141,15 +132,6 @@ export default function Uploadmusic() {
                                           <input class="form-check-input" type="radio" name="album_price" id="album_paid" />
                                           <label class="form-check-label" for="album_paid">Paid</label>
                                       </div>
-                                  </div>
-                                  <div class="col-12 mb-4">
-                                      <div class="input-group">
-                                          <span class="input-group-text">
-                                              <i class="ri-money-dollar-circle-line"></i>
-                                          </span>
-                                          <input type="text" class="form-control" placeholder="Song price" />
-                                      </div>
-                                      <div class="form-text">Please add ticket price if Event is paid</div>
                                   </div>
                                   <div class="col-12">
                                       <a href="javascript:void(0);" class="btn btn-sm btn-light-primary">
