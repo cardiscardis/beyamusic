@@ -8,14 +8,29 @@ import Head from 'next/head';
 import Navbar from '../components/inc/Navbar'
 import Search from "../components/inc/Search";
 import Footer from '../components/inc/Footer';
+import {useRouter} from 'next/router';
+import AdminNavbar from '../components/inc/admin/AdminNav';
 
 export default function App({ Component, pageProps }) {
 
-  // useEffect(() => {
-  //   // require("../bootstrap/dist/js/bootstrap.bundle.min.js");
-  //   require("../public/js/plugins.bundle");
-  //   require("../public/js/scripts.bundle");
-  // }, []);
+  const router = useRouter()
+  const pathname  = router.pathname
+
+  const checkPage = (pathname) => {
+      if(pathname == '/admin')
+          return (
+            <>
+              <AdminNavbar />
+            </>
+          )
+      else 
+      return (
+        <>
+          <Navbar />
+          <Search />
+        </>
+      )
+  }
 
   return (
     <>
@@ -58,8 +73,7 @@ export default function App({ Component, pageProps }) {
           </div>
       </div>
       <div id="wrapper">
-        <Navbar />
-        <Search />
+        {checkPage(pathname)}
           <main id="page_content">
             <div class="" style={{padding: "20vh 0 0 0"}}></div>
               <div class="under-hero container">
