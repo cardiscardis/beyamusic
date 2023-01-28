@@ -1,41 +1,41 @@
-import { Inter } from '@next/font/google'
+//import { Inter } from '@next/font/google'
 import {useRouter} from 'next/router';
 
-const inter = Inter({ subsets: ['latin'] })
+//const inter = Inter({ subsets: ['latin'] })
 
 export default function AdminCredit() {
 
   return (
     <>
-        <div class="row mb-5">
-            <div class="col-2">
-                <select class="form-select">
+        <div className="row mb-5">
+            <div className="col-2">
+                <select className="form-select">
                     <option>All</option>
                     <option>Active</option>
                     <option>Inactive</option>
                 </select>
             </div>
-            <div class="col-2">
-                <select class="form-select">
+            <div className="col-2">
+                <select className="form-select">
                     <option>All</option>
                     <option>15 days</option>
                     <option>30 days</option>
                 </select>
             </div>
-            <div class="col-2">
-                <select class="form-select">
+            <div className="col-2">
+                <select className="form-select">
                     <option>All</option>
                     <option>Admin</option>
                     <option>User</option>
                 </select>
             </div>
-            <div class="col-6" style={{textAlign: 'right', clear: 'both'}}>
-                <p class="ff-montserrat">
-                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addnewcreditModal" style={{background:'#6caf17', borderColor: '#6caf17'}}>Create Credit</button>
+            <div className="col-6" style={{textAlign: 'right', clear: 'both'}}>
+                <p className="ff-montserrat">
+                    <button type="button" className="btn btn-success" data-bs-toggle="modal" data-bs-target="#addnewcreditModal" style={{background:'#6caf17', borderColor: '#6caf17'}}>Create Credit</button>
                 </p>
             </div>
         </div>
-        <table class="table">
+        <table className="table">
             <thead>
                 <tr>
                 <th scope="col">#</th>
@@ -79,31 +79,31 @@ export default function AdminCredit() {
         </table>
         {/* Add Credit Modal */}
 
-        <div class="modal fade" id="addnewcreditModal" tabindex="-1" aria-labelledby="addnewcreditModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="addnewcreditModalLabel">Create New Credit</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div className="modal fade" id="addnewcreditModal" tabIndex="-1" aria-labelledby="addnewcreditModalLabel" aria-hidden="true">
+            <div className="modal-dialog">
+                <div className="modal-content">
+                <div className="modal-header">
+                    <h5 className="modal-title" id="addnewcreditModalLabel">Create New Credit</h5>
+                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
+                <div className="modal-body">
                     <form>
-                        <div class="mb-3">
-                            <label for="creditDuration" class="form-label">Duration</label>
-                            <select class="form-select" id="creditDuration">
+                        <div className="mb-3">
+                            <label htmlFor="creditDuration" className="form-label">Duration</label>
+                            <select className="form-select" id="creditDuration">
                                 <option>15 days</option>
                                 <option>30 days</option>
                             </select>
                         </div>
-                        <div class="mb-3">
-                            <label for="creditPrice" class="form-label">Price</label>
-                            <input type="number" class="form-control" id="creditPrice" />
+                        <div className="mb-3">
+                            <label htmlFor="creditPrice" className="form-label">Price</label>
+                            <input type="number" className="form-control" id="creditPrice" />
                         </div>
                     </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Create Credit</button>
+                <div className="modal-footer">
+                    <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" className="btn btn-primary">Create Credit</button>
                 </div>
                 </div>
             </div>

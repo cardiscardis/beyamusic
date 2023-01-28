@@ -13,6 +13,12 @@ import AdminNavbar from '../components/inc/admin/AdminNav';
 
 export default function App({ Component, pageProps }) {
 
+ /*  useEffect(() => {
+    //require("jquery/dist/jquery.js");
+    require("../public/js/plugins.bundle.js")
+    require("../public/js/scripts.bundle.js")
+  }, []); */
+
   const router = useRouter()
   const pathname  = router.pathname
 
@@ -36,12 +42,11 @@ export default function App({ Component, pageProps }) {
     <>
       <Head>
 
-      <meta charset="utf-8" />
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta charSet="utf-8" />
+      {/*<meta charSet="X-UA-Compatible" content="IE=edge" />*/}
       <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <script type="text/javascript" src="js/plugins.bundle.js"></script>
-        <script type="text/javascript" src="js/scripts.bundle.js"></script>
+        
         <meta name="description" content="Listen App - Online Music Streaming App Template" />
         <meta name="keywords" content="music template, music app, music web app, responsive music app, music, themeforest, html music app template, css3, html5" />
 
@@ -51,17 +56,12 @@ export default function App({ Component, pageProps }) {
         <link rel="apple-touch-icon" sizes="167x167" href="images/logos/touch-icon-ipad-retina.png" />
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </Head>
       <div id="line_loader"></div>
-      <div id="loader">
-          <div class="loader">
-              <div class="loader__eq mx-auto">
+      {/*<div id="loader">
+          <div className="loader">
+              <div className="loader__eq mx-auto">
                   <span></span>
                   <span></span>
                   <span></span>
@@ -69,14 +69,14 @@ export default function App({ Component, pageProps }) {
                   <span></span>
                   <span></span>
               </div>
-              <span class="loader__text mt-2">Loading</span>
+              <span className="loader__text mt-2">Loading</span>
           </div>
-      </div>
+      </div>*/}
       <div id="wrapper">
         {checkPage(pathname)}
           <main id="page_content">
-            <div class="" style={{padding: "20vh 0 0 0"}}></div>
-              <div class="under-hero container">
+            <div className="" style={{padding: "20vh 0 0 0"}}></div>
+              <div className="under-hero container">
                   <Component {...pageProps} />
               </div>
             <Footer />

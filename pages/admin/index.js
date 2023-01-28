@@ -1,4 +1,4 @@
-import { Inter } from '@next/font/google'
+//import { Inter } from '@next/font/google'
 import {useRouter} from 'next/router';
 import AdminCredit from '../../components/admin/credit';
 import AdminHome from '../../components/admin/home';
@@ -7,12 +7,14 @@ import AdminSongDetails from '../../components/admin/song_details';
 import AdminUsers from '../../components/admin/users';
 import AdminUserDetails from '../../components/admin/user_details';
 
-const inter = Inter({ subsets: ['latin'] })
+//const inter = Inter({ subsets: ['latin'] })
 
 export default function AdminDash() {
 const router = useRouter()
 const pathname  = router.pathname
 const { query } = router;
+
+console.log(query.name)
 
 const checkSubPage = (name) => {
     if(name == 'home')

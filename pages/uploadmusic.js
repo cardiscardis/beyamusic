@@ -1,142 +1,142 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import { Inter } from '@next/font/google'
+//import { Inter } from '@next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+//const inter = Inter({ subsets: ['latin'] })
 
 export default function Uploadmusic() {
   return (
     <>
-        <div class="row">
-          <div class="col-xl-7 col-md-10 mx-auto">
-              <div class="card">
-                  <div class="card-header pb-0">
-                      <div class="mat-tabs">
-                          <ul class="nav nav-tabs" id="add_music" role="tablist">
-                              <li class="nav-item" role="presentation">
-                                  <button class="nav-link active" id="music" data-bs-toggle="tab" data-bs-target="#music_pane" type="button" role="tab" aria-controls="music_pane" aria-selected="true">Add Music</button>
+        <div className="row">
+          <div className="col-xl-7 col-md-10 mx-auto">
+              <div className="card">
+                  <div className="card-header pb-0">
+                      <div className="mat-tabs">
+                          <ul className="nav nav-tabs" id="add_music" role="tablist">
+                              <li className="nav-item" role="presentation">
+                                  <button className="nav-link active" id="music" data-bs-toggle="tab" data-bs-target="#music_pane" type="button" role="tab" aria-controls="music_pane" aria-selected="true">Add Music</button>
                               </li>
-                              <li class="nav-item" role="presentation">
-                                  <button class="nav-link" id="album" data-bs-toggle="tab" data-bs-target="#album_pane" type="button" role="tab" aria-controls="album_pane" aria-selected="false" tabindex="-1">Add Album</button>
+                              <li className="nav-item" role="presentation">
+                                  <button className="nav-link" id="album" data-bs-toggle="tab" data-bs-target="#album_pane" type="button" role="tab" aria-controls="album_pane" aria-selected="false" tabIndex="-1">Add Album</button>
                               </li>
                           </ul>
-                      <span class="mat-tabs__line" style={{width: "84.7656px"}}></span></div>
+                      <span className="mat-tabs__line" style={{width: "84.7656px"}}></span></div>
                   </div>
-                  <div class="card-body">
-                      <div class="tab-content" id="add_music_content">
-                          <div class="tab-pane fade show active" id="music_pane" role="tabpanel" aria-labelledby="music" tabindex="0">
-                              <form action="#" class="row">
-                                  <div class="col-12 mb-4">
-                                      <div class="dropzone text-center dz-clickable">
-                                          <div class="dz-message">
-                                              <i class="ri-upload-cloud-2-line fs-2 text-dark"></i>
-                                              <span class=" d-block fs-6 mt-2">Drag &amp; Drop or click to Upload</span>
-                                              <span class=" d-block form-text mb-4">320x320 (Max: 120KB)</span>
-                                              <button type="button" class="btn btn-light-primary">Upload cover image</button>
+                  <div className="card-body">
+                      <div className="tab-content" id="add_music_content">
+                          <div className="tab-pane fade show active" id="music_pane" role="tabpanel" aria-labelledby="music" tabIndex="0">
+                              <form action="#" className="row">
+                                  <div className="col-12 mb-4">
+                                      <div className="dropzone text-center dz-clickable">
+                                          <div className="dz-message">
+                                              <i className="ri-upload-cloud-2-line fs-2 text-dark"></i>
+                                              <span className=" d-block fs-6 mt-2">Drag &amp; Drop or click to Upload</span>
+                                              <span className=" d-block form-text mb-4">320x320 (Max: 120KB)</span>
+                                              <button type="button" className="btn btn-light-primary">Upload cover image</button>
                                           </div>
                                       </div>
                                   </div>
-                                  <div class="col-12 mb-4">
-                                      <input type="text" class="form-control" placeholder="Song name" />
+                                  <div className="col-12 mb-4">
+                                      <input type="text" className="form-control" placeholder="Song name" />
                                   </div>
-                                  <div class="col-12 mb-4">
-                                      <label for="song_file_1" class="form-label">Song file</label>
-                                      <input type="file" id="song_file_1" class="form-control" />
+                                  <div className="col-12 mb-4">
+                                      <label htmlFor="song_file_1" className="form-label">Song file</label>
+                                      <input type="file" id="song_file_1" className="form-control" />
                                   </div>
-                                  <div class="col-sm-6 mb-4">
-                                      <input type="text" class="form-control" placeholder="Artist" />
+                                  <div className="col-sm-6 mb-4">
+                                      <input type="text" className="form-control" placeholder="Artist" />
                                   </div>
-                                  <div class="col-sm-6 mb-4">
-                                      <input type="text" class="form-control" placeholder="Composer" />
+                                  <div className="col-sm-6 mb-4">
+                                      <input type="text" className="form-control" placeholder="Composer" />
                                   </div>
-                                  <div class="col-sm-6 mb-4">
-                                      <input type="text" class="form-control" placeholder="Lyricist" />
+                                  <div className="col-sm-6 mb-4">
+                                      <input type="text" className="form-control" placeholder="Lyricist" />
                                   </div>
-                                  <div class="col-sm-6 mb-4">
-                                      <input type="text" class="form-control" placeholder="Music director" />
+                                  <div className="col-sm-6 mb-4">
+                                      <input type="text" className="form-control" placeholder="Music director" />
                                   </div>
-                                  <div class="col-12 mb-4">
-                                      <select class="form-select" aria-label="Select category">
+                                  <div className="col-12 mb-4">
+                                      <select className="form-select" aria-label="Select category">
                                           <option selected="" disabled="" hidden="">Select category</option>
                                           <option value="Remix">Remix</option>
                                           <option value="Pop">Pop</option>
                                           <option value="DJ">DJ</option>
                                       </select>
                                   </div>
-                                  <div class="col-12 mb-4">
-                                      <textarea name="lyrics" id="lyrics" cols="30" rows="4" class="form-control" placeholder="Lyrics"></textarea>
+                                  <div className="col-12 mb-4">
+                                      <textarea name="lyrics" id="lyrics" cols="30" rows="4" className="form-control" placeholder="Lyrics"></textarea>
                                   </div>
-                                  <div class="col-12 d-flex align-items-center mb-4">
-                                      <div class="form-check me-4">
-                                          <input class="form-check-input" type="radio" name="price" id="free" checked="" />
-                                          <label class="form-check-label" for="free">Free</label>
+                                  <div className="col-12 d-flex align-items-center mb-4">
+                                      <div className="form-check me-4">
+                                          <input className="form-check-input" type="radio" name="price" id="free" checked="" />
+                                          <label className="form-check-label" htmlFor="free">Free</label>
                                       </div>
-                                      <div class="form-check">
-                                          <input class="form-check-input" type="radio" name="price" id="paid" />
-                                          <label class="form-check-label" for="paid">Paid</label>
+                                      <div className="form-check">
+                                          <input className="form-check-input" type="radio" name="price" id="paid" />
+                                          <label className="form-check-label" htmlFor="paid">Paid</label>
                                       </div>
                                   </div>
                               </form>
                           </div>
-                          <div class="tab-pane fade" id="album_pane" role="tabpanel" aria-labelledby="album" tabindex="0">
-                              <form action="#" class="row">
-                                  <div class="col-12 mb-4">
-                                      <div class="dropzone text-center">
-                                          <div class="dz-message">
-                                              <i class="ri-upload-cloud-2-line fs-2 text-dark"></i>
-                                              <span class=" d-block fs-6 mt-2">Drag &amp; Drop or click to Upload</span>
-                                              <span class=" d-block form-text mb-4">320x320 (Max: 120KB)</span>
-                                              <button type="button" class="btn btn-light-primary">Upload cover image</button>
+                          <div className="tab-pane fade" id="album_pane" role="tabpanel" aria-labelledby="album" tabIndex="0">
+                              <form action="#" className="row">
+                                  <div className="col-12 mb-4">
+                                      <div className="dropzone text-center">
+                                          <div className="dz-message">
+                                              <i className="ri-upload-cloud-2-line fs-2 text-dark"></i>
+                                              <span className=" d-block fs-6 mt-2">Drag &amp; Drop or click to Upload</span>
+                                              <span className=" d-block form-text mb-4">320x320 (Max: 120KB)</span>
+                                              <button type="button" className="btn btn-light-primary">Upload cover image</button>
                                           </div>
                                       </div>
                                   </div>
-                                  <div class="col-12 mb-4">
-                                      <input type="text" class="form-control" placeholder="Album name" />
+                                  <div className="col-12 mb-4">
+                                      <input type="text" className="form-control" placeholder="Album name" />
                                   </div>
-                                  <div class="col-12 mb-4">
-                                      <input type="text" class="form-control" placeholder="Song name" />
+                                  <div className="col-12 mb-4">
+                                      <input type="text" className="form-control" placeholder="Song name" />
                                   </div>
-                                  <div class="col-12 mb-4">
-                                      <label for="song_file_2" class="form-label">Song file</label>
-                                      <input type="file" id="song_file_2" class="form-control" />
+                                  <div className="col-12 mb-4">
+                                      <label htmlFor="song_file_2" className="form-label">Song file</label>
+                                      <input type="file" id="song_file_2" className="form-control" />
                                   </div>
-                                  <div class="col-sm-6 mb-4">
-                                      <input type="text" class="form-control" placeholder="Artist" />
+                                  <div className="col-sm-6 mb-4">
+                                      <input type="text" className="form-control" placeholder="Artist" />
                                   </div>
-                                  <div class="col-sm-6 mb-4">
-                                      <input type="text" class="form-control" placeholder="Composer" />
+                                  <div className="col-sm-6 mb-4">
+                                      <input type="text" className="form-control" placeholder="Composer" />
                                   </div>
-                                  <div class="col-sm-6 mb-4">
-                                      <input type="text" class="form-control" placeholder="Lyricist" />
+                                  <div className="col-sm-6 mb-4">
+                                      <input type="text" className="form-control" placeholder="Lyricist" />
                                   </div>
-                                  <div class="col-sm-6 mb-4">
-                                      <input type="text" class="form-control" placeholder="Music director" />
+                                  <div className="col-sm-6 mb-4">
+                                      <input type="text" className="form-control" placeholder="Music director" />
                                   </div>
-                                  <div class="col-12 mb-4">
-                                      <select class="form-select" aria-label="Select category">
+                                  <div className="col-12 mb-4">
+                                      <select className="form-select" aria-label="Select category">
                                           <option selected="" disabled="" hidden="">Select category</option>
                                           <option value="Remix">Remix</option>
                                           <option value="Pop">Pop</option>
                                           <option value="DJ">DJ</option>
                                       </select>
                                   </div>
-                                  <div class="col-12 mb-4">
-                                      <textarea name="lyrics" id="album_lyrics" cols="30" rows="4" class="form-control" placeholder="Lyrics"></textarea>
+                                  <div className="col-12 mb-4">
+                                      <textarea name="lyrics" id="album_lyrics" cols="30" rows="4" className="form-control" placeholder="Lyrics"></textarea>
                                   </div>
-                                  <div class="col-12 d-flex align-items-center mb-4">
-                                      <div class="form-check me-4">
-                                          <input class="form-check-input" type="radio" name="album_price" id="album_free" checked="" />
-                                          <label class="form-check-label" for="album_free">Free</label>
+                                  <div className="col-12 d-flex align-items-center mb-4">
+                                      <div className="form-check me-4">
+                                          <input className="form-check-input" type="radio" name="album_price" id="album_free" checked="" />
+                                          <label className="form-check-label" htmlFor="album_free">Free</label>
                                       </div>
-                                      <div class="form-check">
-                                          <input class="form-check-input" type="radio" name="album_price" id="album_paid" />
-                                          <label class="form-check-label" for="album_paid">Paid</label>
+                                      <div className="form-check">
+                                          <input className="form-check-input" type="radio" name="album_price" id="album_paid" />
+                                          <label className="form-check-label" htmlFor="album_paid">Paid</label>
                                       </div>
                                   </div>
-                                  <div class="col-12">
-                                      <a href="javascript:void(0);" class="btn btn-sm btn-light-primary">
-                                          <div class="btn__wrap">
-                                              <i class="ri-add-line"></i>
+                                  <div className="col-12">
+                                      <a href="javascript:void(0);" className="btn btn-sm btn-light-primary">
+                                          <div className="btn__wrap">
+                                              <i className="ri-add-line"></i>
                                               <span>Add New</span>
                                           </div>
                                       </a>
@@ -145,9 +145,9 @@ export default function Uploadmusic() {
                           </div>
                       </div>
                   </div>
-                  <div class="card-footer text-center">
-                      <button class="btn btn-primary" style={{minWidth: "140px"}}>Add Music</button>
-                      <button class="btn btn-outline-secondary">Cancel</button>
+                  <div className="card-footer text-center">
+                      <button className="btn btn-primary" style={{minWidth: "140px"}}>Add Music</button>
+                      <button className="btn btn-outline-secondary">Cancel</button>
                   </div>
               </div>
           </div>
