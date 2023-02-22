@@ -1,19 +1,47 @@
+//import { Inter } from '@next/font/google'
+//import {useRouter} from "next/router";
+//import useSWR from 'swr';
 import Head from 'next/head'
 import Image from 'next/image'
-//import { Inter } from '@next/font/google'
+import { useSession } from "next-auth/react"
 import DashboardHeader from '../../components/dashboard/Header'
 import DashboardTable from '../../components/dashboard/Table'
 import AllTracks from '../../components/dashboard/AllTracks'
 import Tracks from '../../components/dashboard/Tracks'
 import PopulaTracks from '../../components/dashboard/PopulaTracks'
 import Albums from '../../components/dashboard/Albums'
+//import { useCurrentUser } from '@/lib/user';
+//import { fetcher } from '@/lib/fetch';
+
+/**
+ * <ReactAudioPlayer src={`${musicList.url}`} controls />
+ */
+
 
 //const inter = Inter({ subsets: ['latin'] })
 
 export default function Userdashboard() {
+
+     //function useCurrentUser() {
+        //return useSWR('/api/user', fetcher);
+    //}
+ 
+    const { data:session, status } = useSession()
+    console.log(status, session)
+
+    /* const { data, error, mutate } = useCurrentUser();
+    const router = useRouter(); */
+
+    /* useEffect(() => {
+      if (!data && !error) return;
+      if (!data.user) {
+        router.replace('/login');
+      }
+    }, [router, data, error]); */
+    
   return (
     <>
-      <DashboardHeader />
+      <DashboardHeader user={session?.user} />
       <DashboardTable />
       <ul className="nav nav-pills mb-3" id="pills-tab" role="tablist">
           <li className="nav-item" role="presentation">

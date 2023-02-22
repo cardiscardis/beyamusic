@@ -1,10 +1,20 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import { useEffect, useState } from 'react'
 //import { Inter } from '@next/font/google'
 
 //const inter = Inter({ subsets: ['latin'] })
 
 export default function Uploadmusic() {
+
+    const [ active, setActive ] = useState('music')
+
+    const onChange = (e) => {
+        //console.log(e.target)
+        if (e.target.name === 'music') setActive('music')
+        else setActive('album')
+    }
+
   return (
     <>
         <div className="row">
@@ -14,17 +24,17 @@ export default function Uploadmusic() {
                       <div className="mat-tabs">
                           <ul className="nav nav-tabs" id="add_music" role="tablist">
                               <li className="nav-item" role="presentation">
-                                  <button className="nav-link active" id="music" data-bs-toggle="tab" data-bs-target="#music_pane" type="button" role="tab" aria-controls="music_pane" aria-selected="true">Add Music</button>
+                                  <button className={`nav-link ${active === 'music' ? 'active' : ''}`} id="music" data-bs-toggle="tab" data-bs-target="#music_pane" type="button" role="tab" aria-controls="music_pane" aria-selected="true" tabIndex="-1" name='music' value={"music"} onClick={e => onChange(e)}>Add Music</button>
                               </li>
                               <li className="nav-item" role="presentation">
-                                  <button className="nav-link" id="album" data-bs-toggle="tab" data-bs-target="#album_pane" type="button" role="tab" aria-controls="album_pane" aria-selected="false" tabIndex="-1">Add Album</button>
+                                  <button className={`nav-link ${active === 'album' ? 'active' : ''}`} id="album" data-bs-toggle="tab" data-bs-target="#album_pane" type="button" role="tab" aria-controls="album_pane" aria-selected="false" name='album' value={'album'} onClick={e => onChange(e)}>Add Album</button>
                               </li>
                           </ul>
                       <span className="mat-tabs__line" style={{width: "84.7656px"}}></span></div>
                   </div>
                   <div className="card-body">
                       <div className="tab-content" id="add_music_content">
-                          <div className="tab-pane fade show active" id="music_pane" role="tabpanel" aria-labelledby="music" tabIndex="0">
+                      {active === 'music' && <div className="tab-pane fade show active" id="music_pane" role="tabpanel" aria-labelledby="music" tabIndex="0">
                               <form action="#" className="row">
                                   <div className="col-12 mb-4">
                                       <div className="dropzone text-center dz-clickable">
@@ -77,8 +87,8 @@ export default function Uploadmusic() {
                                       </div>
                                   </div>
                               </form>
-                          </div>
-                          <div className="tab-pane fade" id="album_pane" role="tabpanel" aria-labelledby="album" tabIndex="0">
+                          </div>}
+                          {active === 'album' && <div className="tab-pane fade show active" id="album_pane" role="tabpanel" aria-labelledby="album" tabIndex="0">
                               <form action="#" className="row">
                                   <div className="col-12 mb-4">
                                       <div className="dropzone text-center">
@@ -142,7 +152,7 @@ export default function Uploadmusic() {
                                       </a>
                                   </div>
                               </form>
-                          </div>
+                          </div>}
                       </div>
                   </div>
                   <div className="card-footer text-center">

@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import { useSession } from 'next-auth/react'
 //import { Inter } from '@next/font/google'
 import Slider from '../components/inc/Slider'
 import TopChart from '../components/inc/TopChart'
@@ -10,6 +11,9 @@ import Player from '../components/inc/Player'
 //const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const { data:session, status } = useSession()
+  console.log(status, session)
+
   return (
     <>
       <Slider />

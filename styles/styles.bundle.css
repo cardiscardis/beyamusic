@@ -649,7 +649,7 @@ input {
   left: 0;
   display: block;
   height: 0.125rem;
-  background-color: #196eed;
+  /*background-color: #196eed;*/
   -webkit-transition: all 0.35s ease-in-out;
   transition: all 0.35s ease-in-out;
 }
