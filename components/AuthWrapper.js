@@ -4,13 +4,15 @@ import Link from 'next/link'
 import {useRouter} from "next/router";
 import cogoToast from "cogo-toast";
 
-export default function Wrapper({ children })
-{
-    const [ renderChildren, setRenderChildren ] = React.useState(false)
+export default function Wrapper({ children }) {
+    
     const { data: session, status } = useSession();
+    
+    const [ renderChildren, setRenderChildren ] = React.useState(false)
+    
     const router = useRouter();
 
-    console.log(session.user)
+    console.log(session?.user)
 
     React.useEffect(() => {
 

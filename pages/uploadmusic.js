@@ -1,13 +1,23 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
+import { FileUploader } from "react-drag-drop-files";
+
 //import { Inter } from '@next/font/google'
 
 //const inter = Inter({ subsets: ['latin'] })
 
+
+const fileTypes = ["JPEG", "PNG", "GIF"];
+
 export default function Uploadmusic() {
 
     const [ active, setActive ] = useState('music')
+    const [file, setFile] = useState(null);
+  
+    const handleChange = (file) => {
+        setFile(file);
+    }
 
     const onChange = (e) => {
         //console.log(e.target)
@@ -34,18 +44,34 @@ export default function Uploadmusic() {
                   </div>
                   <div className="card-body">
                       <div className="tab-content" id="add_music_content">
-                      {active === 'music' && <div className="tab-pane fade show active" id="music_pane" role="tabpanel" aria-labelledby="music" tabIndex="0">
+                      {active === 'music' ? 
+                        <div className="tab-pane fade show active" id="music_pane" role="tabpanel" aria-labelledby="music" tabIndex="0">
                               <form action="#" className="row">
                                   <div className="col-12 mb-4">
-                                      <div className="dropzone text-center dz-clickable">
-                                          <div className="dz-message">
-                                              <i className="ri-upload-cloud-2-line fs-2 text-dark"></i>
-                                              <span className=" d-block fs-6 mt-2">Drag &amp; Drop or click to Upload</span>
-                                              <span className=" d-block form-text mb-4">320x320 (Max: 120KB)</span>
-                                              <button type="button" className="btn btn-light-primary">Upload cover image</button>
-                                          </div>
-                                      </div>
+                                      
+                                    <FileUploader
+                                        multiple={false}
+                                        handleChange={handleChange}
+                                        name="file"
+                                        types={fileTypes}
+                                        onTypeError={(err) => console.log(err)}
+                                        onSizeError={(err) => console.log(err)}
+                                        children={
+                                            <div className="dropzone text-center dz-clickable">
+                                                <div className="dz-message">
+                                                    <i className="ri-upload-cloud-2-line fs-2 text-dark"></i>
+                                                    <span className=" d-block fs-6 mt-2">Drag &amp; Drop or click to Upload</span>
+                                                    <span className=" d-block form-text mb-4">320x320 (Max: 120KB)</span>
+                                                    <button type="button" className="btn btn-light-primary">Upload cover image</button>
+                                                </div>
+                                            </div>
+                                        }
+                                    />
+                                    <p>{file?.length ? Object.keys(file).map((f, i) => <p>{`${i+1}.)   ${file[f].name}`}</p>) :
+                                    file ? file.name : 'no files uploaded yet'}</p>
+                                      
                                   </div>
+
                                   <div className="col-12 mb-4">
                                       <input type="text" className="form-control" placeholder="Song name" />
                                   </div>
@@ -87,7 +113,7 @@ export default function Uploadmusic() {
                                       </div>
                                   </div>
                               </form>
-                          </div>}
+                          </div>: null}
                           {active === 'album' && <div className="tab-pane fade show active" id="album_pane" role="tabpanel" aria-labelledby="album" tabIndex="0">
                               <form action="#" className="row">
                                   <div className="col-12 mb-4">
