@@ -58,7 +58,8 @@ export default function Uploadmusic() {
                 return
             }
             console.log(formProps)
-            cogoToast.loading('Uploading...Please wait for the response...', {
+            cogoToast.loading(
+                'Uploading...Please wait for the response...', {
                 hideAfter: 10
             })
             try {
@@ -67,8 +68,7 @@ export default function Uploadmusic() {
                     body: formData,
                 });
     
-                if (response && response.imageURL) {
-                
+                if (response && response.imageURL) {                
                     cogoToast.success('Your song has been uploaded');
                 } else cogoToast.error('Error uploading your song!')                
             } catch(err) {
