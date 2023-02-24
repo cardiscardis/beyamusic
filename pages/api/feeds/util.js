@@ -1,4 +1,4 @@
-import { Readable, Stream } from "stream";
+/* import { Readable, Stream } from "stream";
 
 export const isStream = (input) => {
     return (
@@ -29,3 +29,4 @@ export const streamToBuffer = (stream) => {
     });
 };
 
+ */
