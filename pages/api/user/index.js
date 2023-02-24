@@ -10,7 +10,7 @@ import multer from 'multer';
 import nc from 'next-connect';
 //import { GridFsStorage } from "multer-gridfs-storage";
 import clientPromise from '@/lib/mongodb'
-import * as allFiles from __dirname
+//import * as allFiles from __dirname
 
 //const storage = new GridFsStorage({ url: process.env.MONGODB_URI})//'mongodb://127.0.0.1:27017' });
 /* const storage = new GridFsStorage({
@@ -21,9 +21,9 @@ import * as allFiles from __dirname
     };    
   }
 }); */
-const upload = multer({dest: __dirname});
+const upload = multer({ dest: './public/data/uploads/' });
 
-console.log(allFiles?.length)
+//console.log(allFiles?.length)
 
 
 const handler = nc(ncOpts);
@@ -44,10 +44,11 @@ if (process.env.CLOUDINARY_URL) {
 
 //handler.use(...auths);
  
-handler.get(async (req, res) => {
+/* handler.get(async (req, res) => {
   if (!req.user) return res.json({ user: null });
   return res.json({ user: req.user });
 });
+ */
 
 handler.patch(
   upload.single('profilePicture'),
@@ -121,6 +122,8 @@ handler.patch(
       } catch (error) {
         console.log(error);
       } */
+
+      fs.unlink(req.file.path, resultHandler);
 
       res.status(200).json(result);
   }
