@@ -1,5 +1,5 @@
 import { v2 as cloudinary } from 'cloudinary';
-const fs = require("fs");
+const fs = require("fs/promises");
 import { ncOpts } from '@/lib/nc';
 import multer from 'multer';
 import nc from 'next-connect';
@@ -38,20 +38,13 @@ let resultHandler = function (err) {
   }
 }
 
-
-const upload = multer().fields([{ name: 'file', maxCount: 1 }, { name: 'songFile', maxCount: 1 }])
+const dest = './public/data/uploads/'
+const cpUpload = multer({ dest })
+  .fields([{ name: 'file', maxCount: 1 }, { name: 'songFile', maxCount: 1 }])
 
 handler.patch(
-  upload(req, res, function (err) {
-    if (err instanceof multer.MulterError) {
-      console.log('A Multer error occurred when uploading.')
-    } else if (err) {
-      console.log('An unknown error occurred when uploading.')
-    }
-    console.log('Everything went fine')
-  }), 
-  async (req, res) => {
-  
+  cpUpload, 
+  async (req, res) => {  
     const client = await clientPromise;
     const db = client.db(process.env.DB_NAME);
     const users = db.collection("user");
@@ -93,7 +86,7 @@ handler.patch(
           genre, 
           lyrics, 
           price,
-          user
+          uploaderPhone
         } = req.body
         
         const data = {    
@@ -110,7 +103,7 @@ handler.patch(
           totalStream: 0,
           imageURL,
           songURL,
-          ownerPhone: user?.phone
+          uploaderPhone
         }
 
         //to implement 
@@ -123,13 +116,14 @@ handler.patch(
 
         await songs.insertOne(data);
         
-        //fs.unlink(req.file.path, resultHandler);
+        fs.rm(dest, { recursive: true, force: true });
 
         res.status(200).json(data);
 
       } catch(err) {
+        console.log(err)
 
-        res.status(500).end({err: 'internal error'})
+        res.status(500).end({err})
       }      
   }
 );

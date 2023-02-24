@@ -1,8 +1,9 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { FileUploader } from "react-drag-drop-files";
 import {useSession} from "next-auth/react";
+import cogoToast from 'cogo-toast';
 
 import { fetcher } from '@/lib/fetch';
 
@@ -21,6 +22,8 @@ export default function Uploadmusic() {
 
     const [ active, setActive ] = useState('music')
     const [file, setFile] = useState(null);
+    const genreInput = useRef();
+
   
     const handleChange = (file) => {
         setFile(file);
@@ -39,10 +42,25 @@ export default function Uploadmusic() {
 
         if (active === 'music') {
             const formData = new FormData(event.target);
-            formData.append('user', session?.user);
+            formData.append('uploaderPhone', session?.user?.phone);
             const formProps = Object.fromEntries(formData);
+            if (formProps?.genre === 'Select category') {
+                cogoToast.error('You have not selected the song genre')
+                genreInput.current.focus()
+                return;
+            }
+            if (!formProps?.file?.name) {
+                cogoToast.error('You have not selected a cover image')
+                return;
+            }
+            if (!formProps?.songFile?.name) {
+                cogoToast.error('You have not selected a song file')
+                return
+            }
             console.log(formProps)
-            
+            cogoToast.loading('Uploading...Please wait for the response...', {
+                hideAfter: 10
+            })
             try {
                 const response = await fetcher('/api/user/upload', {
                     method: 'PATCH',
@@ -51,7 +69,7 @@ export default function Uploadmusic() {
     
                 if (response && response.imageURL) {
                 
-                    cogoToast.success('Your song has been updated');
+                    cogoToast.success('Your song has been uploaded');
                 } else cogoToast.error('Error uploading your song!')                
             } catch(err) {
                 console.log(err)
@@ -158,10 +176,10 @@ export default function Uploadmusic() {
                                       <input type="text" className="form-control" placeholder="Music director" name='musicDirector' />
                                   </div>
                                   <div className="col-12 mb-4">
-                                      <select className="form-select" aria-label="Select category" name='genre' required>
-                                          <option selected="" disabled="" hidden="">Select category</option>
+                                      <select className="form-select" aria-label="Select category" name='genre' ref={genreInput} required>
+                                          <option hidden="">Select category</option>
                                           <option value="Remix">Remix</option>
-                                          <option value="Pop">Pop</option>
+                                          <option value="Pop" selected>Pop</option>
                                           <option value="DJ">DJ</option>
                                       </select>
                                   </div>
