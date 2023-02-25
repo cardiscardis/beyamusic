@@ -117,7 +117,7 @@ export default function Register() {
     const _getCode = async() => {
         const e = mainState.code+mainState.pno;
         console.log(e)
-        await axios.get("http://localhost:3000/api/twilio/getcode", {
+        await axios.get(`${process.env.NEXTAUTH_URL}/api/twilio/getcode`, {
             params: {
                 phonenumber: e,
                 channel: 'sms'
@@ -130,7 +130,7 @@ export default function Register() {
     const _verifyCode = async () => {
         const e = mainState.code+mainState.pno;
         console.log(e)
-        await axios.get("http://localhost:3000/api/twilio/verifycode", {
+        await axios.get(`${process.env.NEXTAUTH_URL}/api/twilio/verifycode`, {
             params: {
                 phonenumber: e,
                 code: mainState.otp
