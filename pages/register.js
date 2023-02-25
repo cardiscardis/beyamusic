@@ -117,7 +117,7 @@ export default function Register() {
     const _getCode = async() => {
         const e = mainState.code+mainState.pno;
         console.log(e)
-        await axios.get(`${process.env.VERCEL_URL || 'http://localhost:3000'}/api/twilio/getcode`, {
+        await axios.get(`https://beyamusic.vercel.app/api/twilio/getcode`, {
             params: {
                 phonenumber: e,
                 channel: 'sms'
@@ -130,7 +130,7 @@ export default function Register() {
     const _verifyCode = async () => {
         const e = mainState.code+mainState.pno;
         console.log(e)
-        await axios.get(`${process.env.VERCEL_URL || 'http://localhost:3000'}/api/twilio/verifycode`, {
+        await axios.get(`https://beyamusic.vercel.app/api/twilio/verifycode`, {
             params: {
                 phonenumber: e,
                 code: mainState.otp
