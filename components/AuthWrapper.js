@@ -21,8 +21,7 @@ export default function Wrapper({ children }) {
             router.pathname === '/login')
         {
             setRenderChildren(true)
-        }
-        if (status === 'unauthenticated') {
+        } else if (status === 'unauthenticated') {
             cogoToast.error('You are not logged in')
             router.push('/login')
         }
